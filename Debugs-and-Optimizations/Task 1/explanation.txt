@@ -1,0 +1,28 @@
+In the given submission, the code checks for a sequence of 3 same characters length wise, breadth wise or diagonally.
+When the 3 non '.' characters are found (winner obtained) solve function doesn't stop searching. If any sequence of 3 '.' are found later on, it overwrites winner.
+Eg:
+Input:
+1
+...
+XXX
+...
+
+Output:
+DRAW
+
+Expected Output:
+X
+
+Reason:
+Row wise searching:
+... => winner = '.'
+XXX => winner = 'X' (code should stop searching for other winning combinations)
+... => winner = '.' (winner overwritten, this is an error)
+
+Correction:
+Added bool variable 'check' in solve method, with default value 1
+If a winning sequence is found (XXX or +++ or OOO), check is set to 0.
+winner is overwritten only if check is set to 1.
+Thus checking for combinations stop once a winner (non DRAW combination) is found.
+
+Modified lines example:
