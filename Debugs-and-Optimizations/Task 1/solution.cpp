@@ -100,9 +100,8 @@ void solve(){
         if(grid[i][2 - i] != grid[0][2])
             diagonal = 0;
     }
-    if(diagonal && check){
+    if(diagonal && check)
         winner = grid[0][2];
-        check = (winner=='.')?1:0;}
 
     debug("1");
 
