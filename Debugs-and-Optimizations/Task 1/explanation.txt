@@ -25,4 +25,23 @@ If a winning sequence is found (XXX or +++ or OOO), check is set to 0.
 winner is overwritten only if check is set to 1.
 Thus checking for combinations stop once a winner (non DRAW combination) is found.
 
-Modified lines example:
+Modified lines:
+Original:
+...if(row)
+            winner = grid[i][0];...
+...if(col)
+            winner = grid[0][j];...
+...if(diagonal)
+        winner = grid[0][0];...
+
+New:
+...bool check = 1;...
+...if(row && check){
+            winner = grid[i][0];
+            check = (winner=='.')?1:0;}...
+...if(col && check){
+            winner = grid[0][j];
+            check = (winner=='.')?1:0;}...
+...if(diagonal && check){
+        winner = grid[0][0];
+        check = (winner=='.')?1:0;}...
